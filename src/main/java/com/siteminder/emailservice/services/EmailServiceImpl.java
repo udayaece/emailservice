@@ -72,7 +72,8 @@ public class EmailServiceImpl implements EmailService{
 			if (responseCode < HttpURLConnection.HTTP_BAD_REQUEST) {
 				response = "Your email sent to the provider successfully";
 			}else {
-				response = "Error in sending email";				
+				response = "Error in sending email";	
+				logger.error("response code {}", responseCode);
 				throw new UnSuccessfulException(response);
 			}
 		} catch (Exception e) {
